@@ -5,10 +5,13 @@
   "workspaces": [
     "packages/*"
   ],
+  "engines": {
+    "npm": ">=10.4.0"
+  },
   "scripts": {
-    "build": "npm run build --workspaces:web-client",
-    "start": "npm run start --workspaces:server-api",
-    "dev": "npm run dev --workspaces:server-api ",
+    "build": "npm run build --workspaces --if-present",
+    "start": "npm run start --workspaces --if-present",
+    "dev": "npm run dev --workspace:server-api ",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "standard --fix"
   },
@@ -23,6 +26,7 @@
       "dist/"
     ],
     "extends": "./node_modules/standard/eslintrc.json"
+
   },
   "dependencies": {
     "dotenv": "^16.4.5"
