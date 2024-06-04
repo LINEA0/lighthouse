@@ -3,21 +3,11 @@
 // dotenv config
 import 'dotenv/config'
 
-import express from 'express'
-import bodyParser from 'body-parser'
-import cors from 'cors'
+import app from './app.js'
+import { connect } from './db.js'
 
-const app = express()
-app.use(cors())
-app.use(bodyParser.json())
-app.use(express.static('../web-client/dist'))
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-}
-)
+connect()
 
 app.listen(process.env.PORT, () => {
-  console.log('Server is running on port ' + process.env.PORT)
-}
-)
+  console.log(`Server listening on http://localhost:${process.env.PORT}`)
+})
