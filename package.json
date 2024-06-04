@@ -1,0 +1,30 @@
+{
+  "name": "lighthouse",
+  "version": "1.0.0",
+  "description": "the best barber cms and booking system",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces:web-client",
+    "start": "npm run start --workspaces:server-api",
+    "dev": "npm run dev --workspaces:server-api ",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "standard --fix"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "standard": "^17.1.0"
+  },
+  "eslintConfig": {
+    "ignorePatterns": [
+      "node_modules/",
+      "dist/"
+    ],
+    "extends": "./node_modules/standard/eslintrc.json"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
